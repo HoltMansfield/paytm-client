@@ -1,18 +1,27 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-import ReactDOM from 'react-dom';
-import { App } from './App';
+import React from 'react'
+import { shallow } from 'enzyme'
+import ReactDOM from 'react-dom'
+import { Link } from 'react-router-dom'
+import { App } from './App'
 
 describe('App component',  () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App user={{}} />, div);
+  it('renders non-admin user menu', () => {
+    const props = {
+      user: { isAdmin: false }
+    }
+    const wrapper = shallow(<App user={props.user} />)
+    const links = wrapper.find(Link)
+
+    expect(links.length).toEqual(1)
   });
 
-  it('renders user object', () => {
+  it('renders admin user menu', () => {
     const props = {
-      user: {}
+      user: { isAdmin: true }
     }
-    const component = shallow(<App user={props.user} />)
+    const wrapper = shallow(<App user={props.user} />)
+    const links = wrapper.find(Link)
+
+    expect(links.length).toEqual(2)
   });
 })
