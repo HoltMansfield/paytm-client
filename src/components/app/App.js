@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
 import './App.css';
 
-export class App extends Component {
+class App extends Component {
   getLinks() {
     if(this.props.user) {
       if(this.props.user.isAdmin) {
