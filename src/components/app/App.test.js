@@ -24,4 +24,14 @@ describe('App component',  () => {
 
     expect(links.length).toEqual(2)
   });
+
+  it('does not render a menu for null user', () => {
+    const props = {
+      user: null
+    }
+    const wrapper = shallow(<App user={props.user} />)
+    const links = wrapper.find(Link)
+
+    expect(links.length).toEqual(0)
+  });
 })
