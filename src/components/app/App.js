@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
 import './App.css';
+import User from '../user/User'
+import Login from '../login/Login'
 
 export class App extends Component {
   getLinks() {
@@ -30,6 +32,8 @@ export class App extends Component {
 
     return (
       <div className="App">
+        <User user={user} />
+        <Login user={user} />
         {this.getLinks()}
       </div>
     );

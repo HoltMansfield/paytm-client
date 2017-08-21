@@ -1,6 +1,6 @@
 import { UPDATE_USER } from '../constants/actionTypes'
 
-const initialState = {null}
+const initialState = null
 
 const children = (state = initialState, action) => {
   switch (action.type) {

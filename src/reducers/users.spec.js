@@ -3,10 +3,10 @@ import * as types from '../constants/ActionTypes'
 
 
 describe('users reducer', () => {
-  const initialState = undefined
+  const initialState = null
 
   it('should handle initial state', () => {
-    expect(users(initialState, {})).toEqual(undefined)
+    expect(users(initialState, {})).toEqual(initialState)
   })
 
   it('should handle UPDATE_USER with a valid user object', () => {
