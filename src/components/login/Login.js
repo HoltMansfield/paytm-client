@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import {connect} from 'react-redux'
 import { notify } from 'react-notify-toast'
-import axios from 'axios'
 
 import * as actions from '../../actions'
 
@@ -11,7 +10,6 @@ export class Login extends Component {
   constructor(props) {
     super(props)
     this.login = this.login.bind(this)
-    axios.post = axios.post.bind(this)
   }
 
   login() {
