@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { Link } from 'react-router-dom'
+import Notifications from 'react-notify-toast'
+
 import './App.css';
 import User from '../user/User'
 import Login from '../login/Login'
@@ -32,6 +34,7 @@ export class App extends Component {
 
     return (
       <div className="App">
+        <Notifications />
         <User user={user} />
         <Login user={user} />
         {this.getLinks()}
