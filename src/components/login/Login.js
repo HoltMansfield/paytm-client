@@ -21,16 +21,13 @@ export class Login extends Component {
       last: ReactDOM.findDOMNode(this.refs.last).value
     }
 
-    axios.post('http://localhost:5000/api/employees/login', loginAttempt)
-      .then(response => {
-        if(typeof response.data === "object") {
-          that.props.updateUser(response.data)
+    this.props.doLogin(loginAttempt)
+      .then(data => {
+        if(typeof data === "object") {
+          that.props.updateUser(data)
         } else {
           notify.show('Login Failed!', 'error', 2000)
         }
-      })
-      .catch(function (error) {
-        notify.show('Server is down', 'error', 2000)
       })
   }
 
@@ -52,10 +49,11 @@ export class Login extends Component {
 }
 
 export default connect(
-  () => { return {} },
+  state => { return {} },
   dispatch => {
       return {
-        updateUser: user => dispatch(actions.updateUser(user))
+        updateUser: user => dispatch(actions.updateUser(user)),
+        doLogin: loginAttempt => dispatch(actions.post('employees/login', loginAttempt))
       }
   }
 )(Login)
