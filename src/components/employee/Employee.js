@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+
 
 export class employee extends Component {
   render() {
@@ -15,4 +17,15 @@ export class employee extends Component {
   }
 }
 
-export default employee
+export default connect(
+  state => {
+    return {
+
+    }
+  },
+  dispatch => {
+    return {
+
+    }
+  }
+) (employee)
