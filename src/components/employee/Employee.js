@@ -5,7 +5,11 @@ export class employee extends Component {
     const { employee } = this.props
     return (
       <div>
-        <span>{ employee.first } { employee.last }</span>
+        <span>{ employee.first } { employee.last } { employee.isAdmin ? '[Admin]' : '' }</span>
+        <div>
+          <button>Edit</button>
+          <button>Delete</button>
+        </div>
       </div>
     )
   }
